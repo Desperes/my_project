@@ -18,11 +18,24 @@ diff_cont:
 
     left_wheel_names: ['left_wheel_joint']
     right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.297
-    wheel_radius: 0.037
+    wheel_separation: 0.262  #0.297
+    wheel_radius: 0.0325
 
+
+     # Obtained from https://wiki.ros.org/diff_drive_controller
+    #pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+    #twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0] 
+
+    # Whether the input has a time stamp or not
     use_stamped_vel: false
-    odom_topic: "/odom"
+
+    # Odometry fused with IMU is published by robot_localization, so no need to publish a TF
+    # based on encoders alone (https://wiki.ros.org/diff_drive_controller)
+    #enable_odom_tf: false
+  
+
+
+    #Sodom_topic: "/odom"
     # open_loop: false    
 
     # wheels_per_side: x
